@@ -6,9 +6,22 @@ const aircraftSchema = new Schema(
             type: String,
             required: true,
         },
+        manufacturer: {
+            type: String,
+            required: true,
+        },
+        mainImage: {
+            type: String,
+            required: true,
+        },
+        images: {
+            type: [String],
+            required: true,
+        },
         tailNumber: {
             type: String,
             required: true,
+            unique: true
         },
         homeBase: {
             type: String,
@@ -39,15 +52,19 @@ const aircraftSchema = new Schema(
             required: true,
 
         },
+        services: {
+            type: Object,
+            required: true,
+
+        },
         availability: {
             type: Boolean,
             required: true,
 
         },
-        routeId: {
-            type: String,
-            required: true,
-
+        flightId: {
+            type: Schema.ObjectId,
+            ref: "Flight"
         }
     },
     {
