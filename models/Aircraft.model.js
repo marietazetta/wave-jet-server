@@ -47,7 +47,7 @@ const aircraftSchema = new Schema(
             required: true,
 
         },
-        pricePerHour: {
+        hourlyRate: {
             type: Number,
             required: true,
 
