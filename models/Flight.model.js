@@ -5,9 +5,9 @@ const flightSchema = new Schema(
         destination: {
             type: String,
             required: true,
-            enum: ['Mallorca', 'Ibiza', 'Dubrovnik', 'Barcelona']
+            enum: ['Menorca', 'Ibiza', 'Malaga', 'Barcelona']
         },
-        hoursOfFlight: {
+        flightTime: {
             type: Number,
             required: true,
         },
