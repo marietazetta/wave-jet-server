@@ -7,10 +7,10 @@ const Flight = require('./../models/Flight.model')
 //POST one aircraft
 router.post('/', (req, res, next) => {
 
-    const { model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, flightId } = req.body
+    const { model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability } = req.body
 
     Aircraft
-        .create({ model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, flightId })
+        .create({ model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability })
         .then(newAircraft => res.sendStatus(201))
         .catch(err => next(err))
 
@@ -35,7 +35,6 @@ router.get('/:aircraftId', (req, res, next) => {
 
     Aircraft
         .findById(aircraftId)
-        .populate('flightId')
         .then(oneAircraft => res.json(oneAircraft))
         .catch(err => next(err))
 
@@ -47,11 +46,11 @@ router.get('/:aircraftId', (req, res, next) => {
 router.put('/:aircraftId', (req, res, next) => {
 
     const { aircraftId } = req.params
-    const { model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, flightId } = req.body
+    const { model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability } = req.body
 
 
     Aircraft
-        .findByIdAndUpdate(aircraftId, { model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, flightId })
+        .findByIdAndUpdate(aircraftId, { model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability })
         .then(updatedAircraft => res.sendStatus(204))
         .catch(err => next(err))
 
