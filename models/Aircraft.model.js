@@ -26,7 +26,7 @@ const aircraftSchema = new Schema(
         homeBase: {
             type: String,
             required: true,
-            enum: ['Madrid', 'Barcelona', 'Roma']
+            default: 'Madrid'
         },
         capacity: {
             type: Number,
@@ -61,12 +61,9 @@ const aircraftSchema = new Schema(
             type: Boolean,
             required: true,
 
-        },
-        flightId: {
-            type: Schema.ObjectId,
-            ref: "Flight"
         }
     },
+
     {
         timestamps: true
     }
