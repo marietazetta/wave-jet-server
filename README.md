@@ -18,7 +18,7 @@
 | `PUT`| /aircrafts/:aircraftId| JSON| Edits the spcecified aircraft| 
 | `DELETE`| /aircrafts/:aircraftId | (empty)| Deletes the spcecified aircraft |
 
-#### FLIGHT-ROUTES 
+#### FLIGHTS
 
 | HTTP Verb| URL   |  Request Body             | Action
 | :-------- | :------- | :------------ | :------------- | 
@@ -35,7 +35,7 @@
 | `/`| Homepage|
 | `/signup`| Sign Up| 
 |`/login`| Log In| 
-| `/routes/details` | Visualize routes details |
+| `/flights/details` | Visualize routes details |
 | `/aircraft/details` | Visualize aircraft details |
 | `/about us` | Visualize aircraft details |
 | `/contact us` | Visualize aircraft details |
