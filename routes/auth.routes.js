@@ -7,6 +7,15 @@ const saltRounds = 10
 const User = require("../models/User.model")
 const { isAuthenticated } = require("../middlewares/verifyToken")
 
+
+router.get('/', (req, res, next) => {
+
+    User
+        .find()
+        .then(allUsers => res.json(allUsers))
+        .catch(err => next(err))
+})
+
 router.post("/signup", (req, res, next) => {
 
     const { email, password, username } = req.body

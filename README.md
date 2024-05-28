@@ -35,10 +35,22 @@
 | `/`| Homepage|
 | `/signup`| Sign Up| 
 |`/login`| Log In| 
-| `/flights/details` | Visualize routes details |
-| `/aircraft/details` | Visualize aircraft details |
-| `/about us` | Visualize aircraft details |
-| `/contact us` | Visualize aircraft details |
+|`/profile`| Add or Edit your personal data|
+
+| Path| Description  | 
+| :-------- | :------- | 
+| `/flights/:flightId` | Visualize flights details |
+| `/flights/edit/:flightId` | Edit flights details |
+
+| Path| Description  | 
+| :-------- | :------- | 
+|`/fleet`| Visualize current aircraft fleet| 
+| `/fleet/:aircraftId` | Visualize fleet details |
+| `/fleet/edit/:aircraftId` | Edit fleet details |
+
+| Path| Description  | 
+| :-------- | :------- | 
+| `/about us` | About us details |
 | `*` | 404 |
 
 
@@ -46,7 +58,6 @@
 #### ESCALATION PATHS
 | Path| Description  | 
 | :-------- | :------- | 
-|`/profile`| Add or Edit your personal data|
 |`/bookings`| Visualize all bookings|
 
 
