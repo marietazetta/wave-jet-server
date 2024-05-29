@@ -54,14 +54,20 @@ const aircraftSchema = new Schema(
         },
         services: {
             type: Object,
-            required: true,
+
 
         },
         availability: {
             type: Boolean,
             required: true,
 
+        },
+        description: {
+            type: String,
+            required: true,
+
         }
+
     },
 
     {
