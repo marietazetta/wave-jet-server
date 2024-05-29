@@ -8,6 +8,8 @@ require("./config")(app)
 
 require('./routes')(app)
 
+require('./upload')(app)
+
 require("./error-handling")(app)
 
 module.exports = app

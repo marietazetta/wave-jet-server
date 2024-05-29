@@ -20,6 +20,12 @@ const flightSchema = new Schema(
             type: Number,
             required: true,
         },
+
+        imageUrl: {
+            type: String,
+            required: true,
+        },
+
         aircraftId: [{
             type: Schema.Types.ObjectId,
             ref: "Aircraft"

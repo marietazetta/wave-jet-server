@@ -20,6 +20,7 @@ router.get('/', (req, res, next) => {
 
     Aircraft
         .find()
+        .select()
         .then(allAircrafts => res.json(allAircrafts))
         .catch(err => next(err))
 })
