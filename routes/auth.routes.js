@@ -12,6 +12,7 @@ router.get('/', (req, res, next) => {
 
     User
         .find()
+        .select()
         .then(allUsers => res.json(allUsers))
         .catch(err => next(err))
 })
