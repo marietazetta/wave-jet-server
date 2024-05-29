@@ -8,7 +8,7 @@ router.post('/', (req, res, next) => {
 
     Flight
         .create({ fromDestination, toDestination, flightTime, miles, timestamps, aircraftId })
-        .then(newFlight => res.sendStatus(201))
+        .then(() => res.sendStatus(201))
         .catch(err => next(err))
 })
 
@@ -17,11 +17,10 @@ router.get("/", (req, res, next) => {
 
     Flight
         .find()
+        .select()
         .then(response => res.json(response))
         .catch(err => next(err))
 })
-
-module.exports = router
 
 
 router.get('/:flightId', (req, res, next) => {
@@ -30,7 +29,7 @@ router.get('/:flightId', (req, res, next) => {
 
     Flight
         .findById(flightId)
-        .populate(aircraftId)
+        .populate('aircraftId')
         .then(flight => res.json(flight))
         .catch(err => next(err))
 })
@@ -43,7 +42,7 @@ router.put('/:flightId', (req, res, next) => {
 
     Flight
         .findByIdAndUpdate(flightId, { fromDestination, toDestination, flightTime, miles, timestamps, aircraftId })
-        .then(updateFlight => res.sendStatus(204))
+        .then(() => res.sendStatus(204))
         .catch(err => next(err))
 
 })

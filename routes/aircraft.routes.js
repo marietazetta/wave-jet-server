@@ -4,7 +4,6 @@ const Aircraft = require('./../models/Aircraft.model')
 const Flight = require('./../models/Flight.model')
 
 
-//POST one aircraft
 router.post('/', (req, res, next) => {
 
     const { model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, description } = req.body
@@ -17,8 +16,6 @@ router.post('/', (req, res, next) => {
 })
 
 
-//GET all aircrafts
-
 router.get('/', (req, res, next) => {
 
     Aircraft
@@ -27,7 +24,6 @@ router.get('/', (req, res, next) => {
         .catch(err => next(err))
 })
 
-//GET one aircraft
 
 router.get('/:aircraftId', (req, res, next) => {
 
@@ -37,27 +33,20 @@ router.get('/:aircraftId', (req, res, next) => {
         .findById(aircraftId)
         .then(oneAircraft => res.json(oneAircraft))
         .catch(err => next(err))
-
 })
 
-
-// PUT - Edits one aircraft
 
 router.put('/:aircraftId', (req, res, next) => {
 
     const { aircraftId } = req.params
     const { model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, description } = req.body
 
-
     Aircraft
         .findByIdAndUpdate(aircraftId, { model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, description })
         .then(updatedAircraft => res.sendStatus(204))
         .catch(err => next(err))
-
 })
 
-
-// DELETE - one aircraft
 
 router.delete('/:aircraftId', (req, res, next) => {
 
