@@ -19,7 +19,7 @@ router.post('/', (req, res, next) => {
 router.get('/', (req, res, next) => {
 
     Aircraft
-        .find()
+        .find({ availability: { $eq: true } })
         .select()
         .then(allAircrafts => res.json(allAircrafts))
         .catch(err => next(err))
