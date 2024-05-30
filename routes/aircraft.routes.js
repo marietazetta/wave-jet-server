@@ -6,10 +6,10 @@ const Flight = require('./../models/Flight.model')
 
 router.post('/', (req, res, next) => {
 
-    const { model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, description } = req.body
+    const { model, manufacturer, mainImage, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, description, imagesCarousel } = req.body
 
     Aircraft
-        .create({ model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, description })
+        .create({ model, manufacturer, mainImage, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, description, imagesCarousel })
         .then(newAircraft => res.sendStatus(201))
         .catch(err => next(err))
 
@@ -40,10 +40,10 @@ router.get('/:aircraftId', (req, res, next) => {
 router.put('/:aircraftId', (req, res, next) => {
 
     const { aircraftId } = req.params
-    const { model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, description } = req.body
+    const { model, manufacturer, mainImage, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, description, imagesCarousel } = req.body
 
     Aircraft
-        .findByIdAndUpdate(aircraftId, { model, manufacturer, mainImage, images, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, description })
+        .findByIdAndUpdate(aircraftId, { model, manufacturer, mainImage, tailNumber, homeBase, capacity, range, cabinHeight, cabinWidth, hourlyRate, services, availability, description, imagesCarousel }, { runValidators: true })
         .then(updatedAircraft => res.sendStatus(204))
         .catch(err => next(err))
 })

@@ -14,9 +14,9 @@ const aircraftSchema = new Schema(
             type: String,
             required: true,
         },
-        images: {
+        imagesCarousel: {
             type: [String],
-            required: true,
+            required: false,
         },
         tailNumber: {
             type: String,

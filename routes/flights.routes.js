@@ -4,10 +4,10 @@ const Flight = require('./../models/Flight.model')
 
 router.post('/', (req, res, next) => {
 
-    const { fromDestination, toDestination, flightTime, miles, timestamps, aircraftId } = req.body
+    const { fromDestination, toDestination, flightTime, miles, timestamps, aircraftId, imageUrl } = req.body
 
     Flight
-        .create({ fromDestination, toDestination, flightTime, miles, timestamps, aircraftId })
+        .create({ fromDestination, toDestination, flightTime, miles, timestamps, aircraftId, imageUrl })
         .then(() => res.sendStatus(201))
         .catch(err => next(err))
 })
