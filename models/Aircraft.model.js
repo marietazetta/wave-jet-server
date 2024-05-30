@@ -26,7 +26,7 @@ const aircraftSchema = new Schema(
         homeBase: {
             type: String,
             required: true,
-            default: 'Madrid'
+            default: 'LEMD'
         },
         capacity: {
             type: Number,
