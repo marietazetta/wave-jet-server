@@ -19,6 +19,10 @@ const userSchema = new Schema(
       minlength: [3, '3 characters minimun']
     }
 
+    // role: {
+    //   type: String,
+    //   default: "User"
+
     // address: {
     //   type: String,
     //   required: [true, 'Enter a valid address'],
@@ -28,10 +32,6 @@ const userSchema = new Schema(
     //   type: Number,
     //   required: [true, 'Phone number is required'],
     // }, 
-
-    // role: {
-    //   type: String,
-    //   default: "User"
 
 
 

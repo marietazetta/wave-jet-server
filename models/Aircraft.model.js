@@ -10,6 +10,12 @@ const aircraftSchema = new Schema(
             type: String,
             required: true,
         },
+
+        manufacturerDescription: {
+            type: String,
+            required: true,
+        },
+
         mainImage: {
             type: String,
             required: true,
