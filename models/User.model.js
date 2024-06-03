@@ -17,11 +17,12 @@ const userSchema = new Schema(
       type: String,
       required: [true, 'User is required'],
       minlength: [3, '3 characters minimun']
-    }
+    },
 
-    // role: {
-    //   type: String,
-    //   default: "User"
+    role: {
+      type: String,
+      default: "User"
+    },
 
     // address: {
     //   type: String,
