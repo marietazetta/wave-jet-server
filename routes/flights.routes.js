@@ -2,12 +2,15 @@ const router = require("express").Router()
 
 const Flight = require('./../models/Flight.model')
 
-router.post('/', (req, res, next) => {
+const { isAuthenticated } = require("../middlewares/verifyToken")
+
+router.post('/', isAuthenticated, (req, res, next) => {
 
     const { fromDestination, toDestination, flightTime, miles, timestamps, aircraftId } = req.body
+    const { _id: owner } = req.payload
 
     Flight
-        .create({ fromDestination, toDestination, flightTime, miles, timestamps, aircraftId })
+        .create({ fromDestination, toDestination, flightTime, miles, timestamps, aircraftId, owner })
         .then(() => res.sendStatus(201))
         .catch(err => next(err))
 })
