@@ -5,12 +5,10 @@ const flightSchema = new Schema(
         fromDestination: {
             type: String,
             required: true,
-            // enum: ['Madrid', 'Menorca', 'Ibiza', 'Malaga', 'Barcelona']
         },
         toDestination: {
             type: String,
             required: true,
-            // enum: ['Madrid', 'Menorca', 'Ibiza', 'Malaga', 'Barcelona']
         },
         flightTime: {
             type: Number,
@@ -20,12 +18,6 @@ const flightSchema = new Schema(
             type: Number,
             required: true,
         },
-
-        imageUrl: {
-            type: String,
-            required: true,
-        },
-
         aircraftId: [{
             type: Schema.Types.ObjectId,
             ref: "Aircraft"

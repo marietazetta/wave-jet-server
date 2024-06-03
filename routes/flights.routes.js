@@ -4,10 +4,10 @@ const Flight = require('./../models/Flight.model')
 
 router.post('/', (req, res, next) => {
 
-    const { fromDestination, toDestination, flightTime, miles, timestamps, aircraftId, imageUrl } = req.body
+    const { fromDestination, toDestination, flightTime, miles, timestamps, aircraftId } = req.body
 
     Flight
-        .create({ fromDestination, toDestination, flightTime, miles, timestamps, aircraftId, imageUrl })
+        .create({ fromDestination, toDestination, flightTime, miles, timestamps, aircraftId })
         .then(() => res.sendStatus(201))
         .catch(err => next(err))
 })
@@ -38,10 +38,10 @@ router.get('/:flightId', (req, res, next) => {
 router.put('/:flightId', (req, res, next) => {
 
     const { flightId } = req.params
-    const { fromDestination, toDestination, flightTime, miles, imageUrl, timestamps, aircraftId } = req.body
+    const { fromDestination, toDestination, flightTime, miles, timestamps, aircraftId } = req.body
 
     Flight
-        .findByIdAndUpdate(flightId, { fromDestination, toDestination, flightTime, miles, imageUrl, timestamps, aircraftId })
+        .findByIdAndUpdate(flightId, { fromDestination, toDestination, flightTime, miles, timestamps, aircraftId })
         .then(() => res.sendStatus(204))
         .catch(err => next(err))
 
