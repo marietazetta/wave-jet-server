@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const bookingSchema = new mongoose.Schema({
+const bookingSchema = new Schema({
     fromDestination: {
         type: String,
         required: true
@@ -44,7 +44,16 @@ const bookingSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-});
+
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+},
+    {
+        timestamps: true
+    }
+);
 
 const Booking = model('Booking', bookingSchema);
 module.exports = Booking;
