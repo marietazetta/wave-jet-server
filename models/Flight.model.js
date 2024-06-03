@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, SchemaType } = require("mongoose");
 
 const flightSchema = new Schema(
     {
@@ -29,7 +29,13 @@ const flightSchema = new Schema(
         aircraftId: [{
             type: Schema.Types.ObjectId,
             ref: "Aircraft"
-        }]
+        }],
+
+        owner: {
+            type: Schema.Types.ObjectId,
+            ref: 'Admin'
+        }
+
     },
     {
         timestamps: true
