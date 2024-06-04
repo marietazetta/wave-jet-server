@@ -25,6 +25,26 @@ router.get("/", (req, res, next) => {
         .catch(err => next(err))
 })
 
+router.get("/origin", (req, res, next) => {
+
+    Flight
+        .find()
+        .select('fromDestination')
+        .distinct('fromDestination')
+        .then(response => res.json(response))
+        .catch(err => next(err))
+})
+
+router.get("/destination", (req, res, next) => {
+
+    Flight
+        .find()
+        .select('toDestination')
+        .distinct('toDestination')
+        .then(response => res.json(response))
+        .catch(err => next(err))
+})
+
 
 router.get('/:flightId', (req, res, next) => {
 
