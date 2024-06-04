@@ -26,6 +26,22 @@ router.get("/", (req, res, next) => {
 })
 
 
+router.get('/search', (req, res, next) => {
+
+    const { fromDestination, toDestination } = req.query
+
+    let flightsQuery = {}
+    if (fromDestination) flightsQuery.fromDestination = fromDestination
+    if (toDestination) flightsQuery.toDestination = toDestination
+
+    Flight
+        .find(flightsQuery)
+        .populate('aircraftId')
+        .then(flightResults => res.send(flightResults))
+        .catch(err => next(err))
+})
+
+
 router.get('/:flightId', (req, res, next) => {
 
     const { flightId } = req.params
@@ -59,5 +75,7 @@ router.delete('/:flightId', (req, res, next) => {
         .then(() => res.sendStatus(204))
         .catch(err => next(err))
 })
+
+
 
 module.exports = router;

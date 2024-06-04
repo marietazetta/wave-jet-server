@@ -71,16 +71,12 @@ const aircraftSchema = new Schema(
         description: {
             type: String,
             required: true,
-
         }
-
     },
 
     {
         timestamps: true
     }
-);
+)
 
-const Aircraft = model("Aircraft", aircraftSchema)
-
-module.exports = Aircraft
+module.exports = model("Aircraft", aircraftSchema)

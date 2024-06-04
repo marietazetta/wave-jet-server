@@ -20,7 +20,7 @@ router.get('/', (req, res, next) => {
 
     Aircraft
         .find()
-        .select()
+        .sort({ hourlyRate: 1 })
         .then(allAircrafts => res.json(allAircrafts))
         .catch(err => next(err))
 })

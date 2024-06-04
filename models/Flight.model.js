@@ -1,4 +1,4 @@
-const { Schema, model, SchemaType } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const flightSchema = new Schema(
     {
@@ -34,6 +34,4 @@ const flightSchema = new Schema(
     }
 );
 
-const Flight = model("Flight", flightSchema);
-
-module.exports = Flight;
+module.exports = model("Flight", flightSchema);

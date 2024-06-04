@@ -1,14 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const bookingSchema = new Schema({
-    fromDestination: {
-        type: String,
-        required: true
-    },
-    toDestination: {
-        type: String,
-        required: true
-    },
     departureDate: {
         type: Date,
         required: true
@@ -20,10 +12,6 @@ const bookingSchema = new Schema({
         type: Number,
         required: true
     },
-    bookingDate: {
-        type: Date,
-        default: Date.now
-    },
     status: {
         type: String,
         enum: ['Pending', 'Confirmed', 'Cancelled'],
@@ -31,20 +19,8 @@ const bookingSchema = new Schema({
     },
     flightId: {
         type: Schema.Types.ObjectId,
-        ref: 'Flight',
-        required: true
+        ref: 'Flight'
     },
-    aircraftId: {
-        type: Schema.Types.ObjectId,
-        ref: 'Aircraft',
-        required: true
-    },
-    userId: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
-
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -55,5 +31,4 @@ const bookingSchema = new Schema({
     }
 );
 
-const Booking = model('Booking', bookingSchema);
-module.exports = Booking;
+module.exports = model('Booking', bookingSchema);
