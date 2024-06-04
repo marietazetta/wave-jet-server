@@ -10,4 +10,7 @@ module.exports = app => {
 
   const uploadRouter = require('./upload.routes');
   app.use('/api/upload', uploadRouter);
+
+  const bookingRouter = require('./booking.routes');
+  app.use('/api/bookings', bookingRouter);
 };

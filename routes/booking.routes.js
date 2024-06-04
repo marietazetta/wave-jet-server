@@ -33,6 +33,8 @@ router.get('/:bookingId', (req, res, next) => {
     Booking
         .findById(bookingId)
         .populate('aircraftId')
+        .populate('flightId')
+        .populate('userId')
         .then(booking => res.json(booking))
         .catch(err => next(err))
 })
