@@ -25,6 +25,10 @@ const bookingSchema = new Schema({
     },
     aircraftId: {
         type: Schema.Types.ObjectId,
+        ref: 'Aircraft'
+    },
+    flightId: {
+        type: Schema.Types.ObjectId,
         ref: 'Flight'
     },
     owner: {
