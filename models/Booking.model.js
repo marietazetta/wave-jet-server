@@ -1,6 +1,12 @@
 const { Schema, model } = require("mongoose");
 
 const bookingSchema = new Schema({
+    fromDestination: {
+        type: String,
+    },
+    toDestination: {
+        type: String,
+    },
     departureDate: {
         type: Date,
         required: true
@@ -17,7 +23,7 @@ const bookingSchema = new Schema({
         enum: ['Pending', 'Confirmed', 'Cancelled'],
         default: 'Pending'
     },
-    flightId: {
+    aircraftId: {
         type: Schema.Types.ObjectId,
         ref: 'Flight'
     },

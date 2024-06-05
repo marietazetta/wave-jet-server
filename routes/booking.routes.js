@@ -6,11 +6,11 @@ const { isAuthenticated } = require("../middlewares/verifyToken")
 
 router.post('/', isAuthenticated, (req, res, next) => {
 
-    const { departureDate, returnDate, travellers, status, flightId } = req.body
+    const { departureDate, returnDate, travellers, status, aircraftId, fromDestination, toDestination } = req.body
     const { _id: owner } = req.payload
 
     Booking
-        .create({ departureDate, returnDate, travellers, status, flightId, owner })
+        .create({ departureDate, returnDate, travellers, status, aircraftId, fromDestination, toDestination, owner })
         .then(() => res.sendStatus(201))
         .catch(err => next(err))
 })
@@ -20,6 +20,17 @@ router.get("/", (req, res, next) => {
 
     Booking
         .find()
+        .select()
+        .then(response => res.json(response))
+        .catch(err => next(err))
+})
+
+router.get("/owner/:ownerId", (req, res, next) => {
+
+    const { ownerId } = req.params;
+
+    Booking
+        .find({ owner: ownerId })
         .select()
         .then(response => res.json(response))
         .catch(err => next(err))
@@ -70,11 +81,11 @@ router.put('/:bookingId/decline', (req, res, next) => {
 router.put('/:bookingId', (req, res, next) => {
 
     const { bookingId } = req.params
-    const { departureDate, returnDate, travellers, status, flightId } = req.body
+    const { departureDate, returnDate, travellers, status, aircraftId, fromDestination, toDestination } = req.body
     //const { _id: owner } = req.payload
 
     Booking
-        .findByIdAndUpdate(bookingId, { departureDate, returnDate, travellers, status, flightId })
+        .findByIdAndUpdate(bookingId, { departureDate, returnDate, travellers, status, aircraftId, fromDestination, toDestination })
         .then(() => res.sendStatus(204))
         .catch(err => next(err))
 
