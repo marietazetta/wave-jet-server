@@ -13,7 +13,6 @@ const messageSchema = new Schema(
         },
         ownerModel: {
             type: String,
-            required: true,
             enum: ['Admin', 'User']
         }
     },

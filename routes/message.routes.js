@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Message = require('./../models/Message.model');
+const User = require('./../models/User.model'); // Ensure the path is correct
 const { isAuthenticated } = require("../middlewares/verifyToken");
 
 router.post('/', isAuthenticated, (req, res, next) => {
@@ -8,13 +9,15 @@ router.post('/', isAuthenticated, (req, res, next) => {
 
     Message
         .create({ message, owner })
-        .then(() => res.sendStatus(201))
+        .then(message => Message.findById(message._id).populate('owner', 'username'))
+        .then(populatedMessage => res.status(201).json(populatedMessage))
         .catch(err => next(err));
 });
 
 router.get("/", (req, res, next) => {
     Message
         .find()
+        .populate('owner', 'username')
         .then(response => res.json(response))
         .catch(err => next(err));
 });
@@ -24,6 +27,7 @@ router.get("/owner/:ownerId", (req, res, next) => {
 
     Message
         .find({ owner: ownerId })
+        .populate('owner', 'username')
         .then(response => res.json(response))
         .catch(err => next(err));
 });
@@ -33,7 +37,7 @@ router.get('/:messageId', (req, res, next) => {
 
     Message
         .findById(messageId)
-        .populate()
+        .populate('owner', 'username')
         .then(elm => res.json(elm))
         .catch(err => next(err));
 });
