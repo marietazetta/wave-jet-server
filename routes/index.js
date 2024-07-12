@@ -12,5 +12,5 @@ module.exports = app => {
   app.use('/api/upload', uploadRouter);
 
   const bookingRouter = require('./booking.routes');
-  app.use('/api/bookings', bookingRouter);
+  app.use('/api/profile', bookingRouter);
 };
