@@ -24,15 +24,16 @@ const userSchema = new Schema(
       default: "User"
     },
 
+    // mobile: {
+    //   type: Number,
+    //   required: [true, 'Phone number is required'],
+    // },
+
     // address: {
     //   type: String,
     //   required: [true, 'Enter a valid address'],
     // },
 
-    // phone: {
-    //   type: Number,
-    //   required: [true, 'Phone number is required'],
-    // }, 
 
 
   },
