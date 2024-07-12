@@ -1,4 +1,5 @@
 module.exports = app => {
+
   const aircraftsRouter = require('./aircraft.routes');
   app.use('/api/aircrafts', aircraftsRouter);
 
@@ -13,4 +14,7 @@ module.exports = app => {
 
   const bookingRouter = require('./booking.routes');
   app.use('/api/profile', bookingRouter);
+
+  const messageRouter = require('./message.routes');
+  app.use('/api/messages', messageRouter);
 };
