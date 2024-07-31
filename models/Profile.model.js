@@ -6,12 +6,12 @@ const profileSchema = new Schema(
 
         mobile: {
             type: Number,
-            required: true,
+
         },
 
-        fullname: {
+        fullName: {
             type: String,
-            required: true
+
         },
 
         favAirport: {
@@ -19,12 +19,18 @@ const profileSchema = new Schema(
         },
 
         specialDiet: {
-            enum: ["celiac", "vegetarian", "vegan", "none"]
+            enum: ["celiac", "vegetarian", "vegan", "none", "halal"]
         },
 
+        userId: [{
+            type: Schema.Types.ObjectId,
+            ref: "User"
+        }],
 
-
-
+        owner: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        },
 
 
     },
