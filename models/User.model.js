@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-
 const userSchema = new Schema(
   {
     email: {
@@ -16,28 +15,14 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: [true, 'User is required'],
-      minlength: [3, '3 characters minimun']
+      minlength: [3, '3 characters minimum']
     },
-
     role: {
       type: String,
       default: "User"
     },
-
-    // address: {
-    //   type: String,
-    //   required: [true, 'Enter a valid address'],
-    // },
-
-    // phone: {
-    //   type: Number,
-    //   required: [true, 'Phone number is required'],
-    // }, 
-
-
   },
   {
-
     timestamps: true
   }
 );

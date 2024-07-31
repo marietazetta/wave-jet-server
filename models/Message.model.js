@@ -9,12 +9,19 @@ const messageSchema = new Schema(
         },
         owner: {
             type: Schema.Types.ObjectId,
-            refPath: 'ownerModel'
+            refPath: 'ownerModel',
+            required: true,
         },
         ownerModel: {
             type: String,
-            enum: ['Admin', 'User']
-        }
+            enum: ['Admin', 'User'],
+            required: true,
+        },
+        recipient: {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+            required: true,
+        },
     },
     {
         timestamps: true
