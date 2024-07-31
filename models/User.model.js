@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-
 const userSchema = new Schema(
   {
     email: {
@@ -16,13 +15,13 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: [true, 'User is required'],
-      minlength: [3, '3 characters minimun']
+      minlength: [3, '3 characters minimum']
     },
-
     role: {
       type: String,
       default: "User"
     },
+<<<<<<< HEAD
 
     // mobile: {
     //   type: Number,
@@ -36,9 +35,10 @@ const userSchema = new Schema(
 
 
 
+=======
+>>>>>>> diego
   },
   {
-
     timestamps: true
   }
 );
