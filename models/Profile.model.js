@@ -22,11 +22,6 @@ const profileSchema = new Schema(
             enum: ["celiac", "vegetarian", "vegan", "none", "halal"]
         },
 
-        userId: [{
-            type: Schema.Types.ObjectId,
-            ref: "User"
-        }],
-
         owner: {
             type: Schema.Types.ObjectId,
             ref: 'User'

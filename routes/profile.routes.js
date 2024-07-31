@@ -23,15 +23,17 @@ router.get('/:profileId', (req, res, next) => {
 })
 
 router.get("/owner/:ownerId", (req, res, next) => {
-
     const { ownerId } = req.params;
 
     Profile
         .find({ owner: ownerId })
-        .populate('profileId')
+        .populate('owner')
         .then(response => res.json(response))
-        .catch(err => next(err))
-})
+        .catch(err => {
+            console.error('Error fetching profiles:', err);
+            next(err);
+        });
+});
 
 
 router.post('/', isAuthenticated, (req, res, next) => {
