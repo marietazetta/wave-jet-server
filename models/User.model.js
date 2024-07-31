@@ -21,7 +21,6 @@ const userSchema = new Schema(
       type: String,
       default: "User"
     },
-<<<<<<< HEAD
 
     // mobile: {
     //   type: Number,
@@ -35,8 +34,6 @@ const userSchema = new Schema(
 
 
 
-=======
->>>>>>> diego
   },
   {
     timestamps: true
