@@ -20,23 +20,7 @@ const userSchema = new Schema(
     role: {
       type: String,
       default: "User"
-    },
-<<<<<<< HEAD
-
-    // mobile: {
-    //   type: Number,
-    //   required: [true, 'Phone number is required'],
-    // },
-
-    // address: {
-    //   type: String,
-    //   required: [true, 'Enter a valid address'],
-    // },
-
-
-
-=======
->>>>>>> diego
+    }
   },
   {
     timestamps: true
