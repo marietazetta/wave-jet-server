@@ -25,7 +25,6 @@ router.get("/owner/:ownerId", (req, res, next) => {
 
     Profile
         .find({ owner: ownerId })
-        .populate('owner')
         .then(response => res.json(response))
         .catch(err => next(err));
 });
