@@ -21,7 +21,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('send-message', (message) => {
-    // Broadcast the new message to all connected clients
+    console.log('Message broadcasted:', message);
     io.emit('receive-message', message);
   });
 
