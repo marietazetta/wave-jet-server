@@ -8,10 +8,9 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = require('socket.io')(server, {
+const io = new Server(server, {
   cors: { origin: '*' }
-})
-
+});
 
 io.on('connection', (socket) => {
   console.log(`User connected: ${socket.id}`);
@@ -21,7 +20,6 @@ io.on('connection', (socket) => {
   });
 
   socket.on('send-message', (message) => {
-    console.log('Message broadcasted:', message);
     io.emit('receive-message', message);
   });
 
@@ -36,8 +34,6 @@ require('./routes')(app);
 require("./error-handling")(app);
 
 const PORT = process.env.PORT || 5005;
-
-// Empieza a escuchar con el servidor HTTP en vez de 'app.listen'
 server.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
