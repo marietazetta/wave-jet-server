@@ -21,5 +21,7 @@ module.exports = app => {
   const profileRouter = require('./profile.routes');
   app.use('/api/profile', profileRouter);
 
+  const stripeRouter = require('./stripe.routes');
+  app.use('/api/stripe', stripeRouter);
 
 };
